@@ -1,0 +1,41 @@
+image: python:3.7.4-alpine3.10
+pipelines:
+  branches:
+    development:
+      # tags:
+      #   ecr-release-*:
+          - step:
+              services:
+                - docker
+              caches:
+                - pip
+                - node
+              script:
+                - pip3 install awscli
+                - export TIMESTAMP="$(date +%Y%m%d)"
+                - IMAGE="460421598906.dkr.ecr.eu-west-3.amazonaws.com/nftes-dev-node"
+                - aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID}"
+                - aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY}"
+                - eval $(aws ecr get-login --no-include-email --region eu-west-3 | sed 's;https://;;g')
+                - docker build -t $IMAGE:latest .
+                - docker push $IMAGE:latest
+                - aws ecs update-service --cluster nftes-dev-node-cluster --service nftes-dev-node-service --force-new-deployment --region eu-west-3
+    production:
+      # tags:
+      #   ecr-release-*:
+          - step:
+              services:
+                - docker
+              caches:
+                - pip
+                - node
+              script:
+                - pip3 install awscli
+                - export TIMESTAMP="$(date +%Y%m%d)"
+                - IMAGE="460421598906.dkr.ecr.eu-west-3.amazonaws.com/nftes-prod-node"
+                - aws configure set aws_access_key_id "${AWS_ACCESS_KEY_ID}"
+                - aws configure set aws_secret_access_key "${AWS_SECRET_ACCESS_KEY}"
+                - eval $(aws ecr get-login --no-include-email --region eu-west-3 | sed 's;https://;;g')
+                - docker build -t $IMAGE:latest .
+                - docker push $IMAGE:latest
+                - aws ecs update-service --cluster nftes-prod-node-cluster --service nftes-prod-node-service --force-new-deployment --region eu-west-3
