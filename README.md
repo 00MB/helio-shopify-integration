@@ -1,14 +1,15 @@
-# Project NFT-es
+# Project Helio
 
 ## Requirements
 
-For development, you will only need Node.js and a node global package, Yarn, installed in your environement.
+For development, you will only need Node.js and a node global package, Yarn, installed in your environment.
 
 ### Node
+
 - #### Node installation on Windows
 
   Just go on [official Node.js website](https://nodejs.org/) and download the installer.
-Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
+  Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
 
 - #### Node installation on Ubuntu
 
@@ -34,10 +35,9 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
 
 ## Install
 
-    $ git clone git@bitbucket.org:logicon15/nftes-node-backend.git
-    $ cd NFTES-ES
+    $ git clone https://github.com/MediaCarry/helio-shopify-integration.git
+    $ cd helio-shopify-integration
     $ npm install
-
 
 ## Running the project for
 
@@ -53,4 +53,3 @@ If you need to update `npm`, you can make it using `npm`! Cool right? After runn
     $ 200 => success response.
     $ 406 => server validation error.
     $ 500 => server error.
- 

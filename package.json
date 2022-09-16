@@ -1,7 +1,7 @@
 {
-  "name": "nft-es",
+  "name": "shopify-helio",
   "version": "1.0.0",
-  "description": "Nft-es",
+  "description": "Shopify Helio Integration",
   "main": "./src/server.js",
   "scripts": {
     "server:local": "export NODE_ENV=local && nodemon ./server",
@@ -15,7 +15,7 @@
       "src/temp/*.json"
     ]
   },
-  "author": "Nft-es",
+  "author": "Media Carry",
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.1116.0",

@@ -27,18 +27,7 @@ var server = Packages.app.listen(process.env.PORT || 8080);
 
 Packages.app.use(
   Packages.cors({
-    origin: [
-      "https://nftes.es",
-      "https://www.nftes.es",
-      "https://newdev.nftes.es",
-      "https://www.newdev.nftes.es",
-      "https://admin.nftes.es",
-      "https://www.admin.nftes.es",
-      "https://newdev.admin.nftes.es",
-      "https://www.newdev.admin.nftes.es",
-      "http://localhost:3001",
-      "http://localhost:3000",
-    ],
+    origin: ["http://localhost:3001", "http://localhost:3000"],
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
