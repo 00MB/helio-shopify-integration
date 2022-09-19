@@ -7,6 +7,7 @@ require("dotenv").config({ path: ".env.local" }); //{ path: '../.env' }
 
 const Packages = require("./src/global-package");
 require("./src/config/db");
+console.log(process.env.PORT);
 // *********************************************************************
 var server = Packages.app.listen(process.env.PORT || 8080);
 // **************************** **********************************************
@@ -73,6 +74,7 @@ global.upload = multer({
 // *********************************************************************
 // api routers
 Packages.app.use("/api/v1/test", require("./src/routes/v1/test-routes"));
+Packages.app.use("/api/v1/order", require("./src/routes/v1/order-routes"));
 
 // **********************************************************************
 // url not found
