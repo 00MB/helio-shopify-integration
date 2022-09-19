@@ -1,17 +1,15 @@
-let packages = {} 
-packages.express = require('express');
+let packages = {};
+packages.express = require("express");
 packages.path = require("path");
-packages.cors = require('cors');
+packages.cors = require("cors");
 
-// ********************************************************************* 
+// *********************************************************************
 
-packages.app = require('express')();
+packages.app = require("express")();
 packages.jwt = require("jsonwebtoken");
-packages.moment = require('moment');   
+packages.moment = require("moment");
 packages.bcrypt = require("bcryptjs");
-packages.axios = require('axios'); 
+packages.axios = require("axios");
+packages.dotenv = require("dotenv");
 
-packages.stripe = require('stripe')(process.env.STRIP_KEY);
-
-
-module.exports = packages
+module.exports = packages;

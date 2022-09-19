@@ -4,9 +4,9 @@
   "description": "Shopify Helio Integration",
   "main": "./src/server.js",
   "scripts": {
-    "server:local": "export NODE_ENV=local && nodemon ./server",
-    "server:dev": "export NODE_ENV=develop && node ./server",
-    "server:prod": "export NODE_ENV=prod && node ./server",
+    "server:local": "set NODE_ENV=local && nodemon ./server",
+    "server:dev": "set NODE_ENV=dev && node ./server",
+    "server:prod": "set NODE_ENV=prod && node ./server",
     "test_mocha": "mocha",
     "test": "jest"
   },

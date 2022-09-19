@@ -1,8 +1,10 @@
 const path = require("path");
-require("dotenv").config({
-  path: path.join(__dirname, `.env.${process.env.NODE_ENV}`),
-});
-// require('dotenv').config();//{ path: '../.env' }
+console.log(process.env.NODE_ENV, `.env.${process.env.NODE_ENV}`);
+// require("dotenv").config({
+//   path: path.join(__dirname, `.env.${process.env.NODE_ENV}`),
+// });
+require("dotenv").config({ path: ".env.local" }); //{ path: '../.env' }
+
 const Packages = require("./src/global-package");
 require("./src/config/db");
 // *********************************************************************
@@ -71,9 +73,6 @@ global.upload = multer({
 // *********************************************************************
 // api routers
 Packages.app.use("/api/v1/test", require("./src/routes/v1/test-routes"));
-Packages.app.use("/api/v1", require("./src/routes/v1/user-routes"));
-Packages.app.use("/api/v1/stripe", require("./src/routes/v1/stripe-routes"));
-Packages.app.use("/api/v1/admin", require("./src/routes/v1/admin-routes"));
 
 // **********************************************************************
 // url not found
