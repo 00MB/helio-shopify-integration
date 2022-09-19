@@ -1,3 +1,4 @@
+const GlobalServices = require("../services/index");
 let {
   Order,
 } = require("@shopify/shopify-api/dist/rest-resources/2021-10/index.js");
@@ -17,6 +18,14 @@ module.exports = {
     return res.status(200).json({
       msg: "email send successfully.",
       data: data,
+    });
+  },
+  createOrder: async (req, res) => {
+    let order = req.body;
+    let create_order = await GlobalServices.order.createOrderService(order);
+    return res.status(200).json({
+      msg: "email send successfully.",
+      data: create_order,
     });
   },
 };
