@@ -11,9 +11,8 @@ import './styles/style.scss';
 
 const App = () => {
   const [paymentId, setPaymentId] = useState<string | null>(
-    'c5d4dd5d-d880-4b9f-a918-efb931a3aa1e'
+    '4c00cac1-c855-4297-af2b-6d62c06a2888'
   );
-
 
   const getListCurrencies = () => {
     HelioApiAdapter.listCurrencies('devnet')
@@ -31,19 +30,12 @@ const App = () => {
 
   return (
     <>
-      {/* <input
+      <input
         type="text"
         value={paymentId}
         onChange={(e) => setPaymentId(e.target.value)}
-      /> */}
-      <HelioPay
-        cluster='devnet'
-        payButtonTitle='PAY'
-        paymentRequestId='f137617c-88fd-4911-825e-9be3ecd2492d'
-        supportedCurrencies={["USDC", "SOL", "DUST", "BOO", "HALO"]}
-        totalAmount={1}
       />
-      {/* <HelioPay
+      <HelioPay
         cluster="devnet"
         paymentRequestId={paymentId}
         onSuccess={function (event: SuccessPaymentEvent): void {
@@ -58,9 +50,9 @@ const App = () => {
         onStartPayment={function (): void {
           console.log('onStartPayment');
         }}
-        supportedCurrencies={['USDC', 'SOL', 'DUST', 'BOO', 'HALO']}
-        totalAmount={0.145}
-      /> */}
+        supportedCurrencies={['SOL']}
+        totalAmount={0.01}
+      />
     </>
   );
 };
